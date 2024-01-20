@@ -1,0 +1,71 @@
+<div class="container mt-2">
+  <div class="row g-0">
+    <div class="col-md-4 offset-md-1">
+      <div class="card">
+        <div class="card-body">
+          <h6 class="text-muted">Name On Card</h6>
+          <p class="text-muted">{{ formgrp.controls['name'].value}}</p>
+          <h6 class="text-muted">Card Number</h6>
+          <p class="text-muted">{{ formgrp.controls['cardno'].value}}</p>
+          <h6 class="text-muted">Exp Date</h6>
+          <p class="text-muted">{{ formgrp.controls['exp'].value}}</p>
+          <h6 class="text-muted">Cvv</h6>
+          <p class="text-muted">{{ formgrp.controls['cvv'].value}}</p>
+          
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 offset-md-1">
+      <div class="card">
+        <div class="card-body">
+          <form (ngSubmit)="handleSubmit()" [formGroup]="formgrp">
+            <div class="mb-2">
+              <app-input
+                [classVal]="'form-control'"
+                [control]="formgrp.get('name')"
+                [placeHolderVal]="'Enter Name on card'"
+              ></app-input>
+            </div>
+            <div class="mb-2">
+              <app-input
+              [classVal]="'form-control'"
+              [control]="formgrp.get('cardno')"
+                [placeHolderVal]="'Enter Card Number'"
+              ></app-input>
+            </div>
+
+            <div class="row g-0">
+              <div class="col-md-4 mb-2 me-1">
+                <app-input
+                [classVal]="'form-control'"
+                [control]="formgrp.get('exp')"
+                  [placeHolderVal]="'Expiry 12/24'"
+                ></app-input>
+              </div>
+              <div class="col-md-4 mb-2">
+                <app-input
+                [classVal]="'form-control'"
+                [control]="formgrp.get('cvv')"
+                  [placeHolderVal]="'CVV'"
+                ></app-input>
+              </div>
+            </div>
+            <div>
+              <input
+                type="submit"
+                value="Submit"
+                class="btn btn-outline-success me-2"
+              />
+              <input
+                type="button"
+                (click)="handleReset()"
+                value="Reset"
+                class="btn btn-outline-warning"
+              />
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,17 @@
+<input
+  [formControl]="control"
+  [class]="classVal"
+  type="text"
+  [placeholder]="placeHolderVal"
+/>
+<small *ngIf="control.errors?.required && control.touched" class="text-danger"
+  >required</small
+>
+<small *ngIf="control.errors?.minlength" class="text-danger"
+  >You eneterd {{ control.errors?.minlength.actualLength }} but required
+  {{ control.errors?.minlength.requiredLength }}</small
+>
+<small *ngIf="control.errors?.maxlength" class="text-danger"
+  >You eneterd {{ control.errors?.maxlength.actualLength }} but required
+  {{ control.errors?.maxlength.requiredLength }}</small
+>
