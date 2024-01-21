@@ -4,14 +4,13 @@
       <div class="card">
         <div class="card-body">
           <h6 class="text-muted">Name On Card</h6>
-          <p class="text-muted">{{ formgrp.controls['name'].value}}</p>
+          <p class="text-muted">{{ formgrp.controls["name"].value }}</p>
           <h6 class="text-muted">Card Number</h6>
-          <p class="text-muted">{{ formgrp.controls['cardno'].value}}</p>
+          <p class="text-muted">{{ formgrp.controls["cardno"].value }}</p>
           <h6 class="text-muted">Exp Date</h6>
-          <p class="text-muted">{{ formgrp.controls['exp'].value}}</p>
+          <p class="text-muted">{{ formgrp.controls["exp"].value }}</p>
           <h6 class="text-muted">Cvv</h6>
-          <p class="text-muted">{{ formgrp.controls['cvv'].value}}</p>
-          
+          <p class="text-muted">{{ formgrp.controls["cvv"].value }}</p>
         </div>
       </div>
     </div>
@@ -21,6 +20,9 @@
           <form (ngSubmit)="handleSubmit()" [formGroup]="formgrp">
             <div class="mb-2">
               <app-input
+                [labels]="'Name on card'"
+                [idName]="'name'"
+                [forName]="'name'"
                 [classVal]="'form-control'"
                 [control]="formgrp.get('name')"
                 [placeHolderVal]="'Enter Name on card'"
@@ -28,8 +30,11 @@
             </div>
             <div class="mb-2">
               <app-input
-              [classVal]="'form-control'"
-              [control]="formgrp.get('cardno')"
+                [labels]="'Card Number'"
+                [idName]="'cardno'"
+                [forName]="'cardno'"
+                [classVal]="'form-control'"
+                [control]="formgrp.get('cardno')"
                 [placeHolderVal]="'Enter Card Number'"
               ></app-input>
             </div>
@@ -37,21 +42,28 @@
             <div class="row g-0">
               <div class="col-md-4 mb-2 me-1">
                 <app-input
-                [classVal]="'form-control'"
-                [control]="formgrp.get('exp')"
+                  [labels]="'Exp MM/YY'"
+                  [idName]="'exp'"
+                  [forName]="'exp'"
+                  [classVal]="'form-control'"
+                  [control]="formgrp.get('exp')"
                   [placeHolderVal]="'Expiry 12/24'"
                 ></app-input>
               </div>
               <div class="col-md-4 mb-2">
                 <app-input
-                [classVal]="'form-control'"
-                [control]="formgrp.get('cvv')"
+                  [labels]="'CVV XXX'"
+                  [idName]="'cvv'"
+                  [forName]="'cvv'"
+                  [classVal]="'form-control'"
+                  [control]="formgrp.get('cvv')"
                   [placeHolderVal]="'CVV'"
                 ></app-input>
               </div>
             </div>
             <div>
               <input
+                [disabled]="formgrp.invalid"
                 type="submit"
                 value="Submit"
                 class="btn btn-outline-success me-2"

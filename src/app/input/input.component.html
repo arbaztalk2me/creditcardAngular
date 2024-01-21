@@ -1,4 +1,6 @@
+<label [for]="forName" class="form-label">{{labels}}</label>
 <input
+  [id]="idName"
   [formControl]="control"
   [class]="classVal"
   type="text"
@@ -15,3 +17,5 @@
   >You eneterd {{ control.errors?.maxlength.actualLength }} but required
   {{ control.errors?.maxlength.requiredLength }}</small
 >
+<small *ngIf="control.errors?.pattern" class="text-danger"
+  >Invalid Format</small>

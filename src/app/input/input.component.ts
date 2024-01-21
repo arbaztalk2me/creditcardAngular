@@ -11,6 +11,9 @@ export class InputComponent implements OnInit {
   @Input() placeHolderVal="";
   @Input() classVal="";
   @Input() control:any;
+  @Input() idName="";
+  @Input() forName="";
+  @Input() labels="";
 
   constructor() { }
 
